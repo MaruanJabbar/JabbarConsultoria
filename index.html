@@ -729,17 +729,64 @@ Esses serviços atendem demandas preventivas, contratuais, judiciais e extrajudi
                     
                     <div class="bg-white p-12 md:p-16 rounded-[40px] text-charcoal shadow-2xl relative">
                         <h3 class="serif text-3xl mb-10">Solicitar Contato</h3>
-                        <form class="space-y-8" method="post" action="https://formspree.io/f/maqnzopz" id="contact-form" novalidate>
-                                                    <div class="relative">
-                                <input type="text" name="nome" autocomplete="name" required placeholder="Nome Completo" class="w-full bg-transparent border-b border-gray-200 py-3 focus:border-primary-gold outline-none text-lg transition-all placeholder:text-gray-300 font-light">
-                            </div>
-                            <div class="grid md:grid-cols-2 gap-8">
-                                <input type="text" name="empresa" autocomplete="organization" placeholder="Empresa" class="bg-transparent border-b border-gray-200 py-3 focus:border-primary-gold outline-none transition-all placeholder:text-gray-300 font-light">
-                                <input type="email" name="email" autocomplete="email" required placeholder="E-mail Corporativo" class="bg-transparent border-b border-gray-200 py-3 focus:border-primary-gold outline-none transition-all placeholder:text-gray-300 font-light">
-                            </div>
-                            <textarea rows="4" name="mensagem" required placeholder="Como podemos apoiar sua organização?" class="w-full bg-transparent border-b border-gray-200 py-3 focus:border-primary-gold outline-none transition-all placeholder:text-gray-300 resize-none font-light"></textarea>
-                            <button type="submit" class="w-full bg-charcoal text-white font-bold py-6 rounded-2xl uppercase tracking-[0.2em] text-xs hover:bg-black transition-all shadow-xl transform hover:-translate-y-1">Enviar Mensagem</button>
-                        </form>
+<form 
+  class="space-y-8"
+  method="post"
+  action="https://formspree.io/f/maqnzopz"
+  target="_blank"
+  novalidate
+>
+  <!-- Redirecionamento após envio -->
+  <input 
+    type="hidden" 
+    name="_redirect" 
+    value="https://jabbarconsultoria.com.br/obrigado.html"
+  >
+
+  <div class="relative">
+    <input 
+      type="text" 
+      name="nome" 
+      autocomplete="name" 
+      required 
+      placeholder="Nome Completo"
+      class="w-full bg-transparent border-b border-gray-200 py-3 focus:border-primary-gold outline-none text-lg transition-all placeholder:text-gray-300 font-light"
+    >
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-8">
+    <input 
+      type="text" 
+      name="empresa" 
+      autocomplete="organization" 
+      placeholder="Empresa"
+      class="bg-transparent border-b border-gray-200 py-3 focus:border-primary-gold outline-none transition-all placeholder:text-gray-300 font-light"
+    >
+    <input 
+      type="email" 
+      name="email" 
+      autocomplete="email" 
+      required 
+      placeholder="E-mail Corporativo"
+      class="bg-transparent border-b border-gray-200 py-3 focus:border-primary-gold outline-none transition-all placeholder:text-gray-300 font-light"
+    >
+  </div>
+
+  <textarea 
+    rows="4" 
+    name="mensagem" 
+    required 
+    placeholder="Como podemos apoiar sua organização?"
+    class="w-full bg-transparent border-b border-gray-200 py-3 focus:border-primary-gold outline-none transition-all placeholder:text-gray-300 resize-none font-light"
+  ></textarea>
+
+  <button 
+    type="submit"
+    class="w-full bg-charcoal text-white font-bold py-6 rounded-2xl uppercase tracking-[0.2em] text-xs hover:bg-black transition-all shadow-xl transform hover:-translate-y-1"
+  >
+    Enviar Mensagem
+  </button>
+</form>
                     </div>
                 </div>
             </div>
