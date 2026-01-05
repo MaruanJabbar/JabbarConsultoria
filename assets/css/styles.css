@@ -1,0 +1,203 @@
+:root {
+            --primary-gold: #b89542;
+            --dark-charcoal: #1a1a1a;
+            --pearl-white: #fdfcf9;
+            --menu-width: 300px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--pearl-white);
+            color: #333;
+            overflow-x: hidden;
+            width: 100%;
+        }
+        .serif { font-family: 'Playfair Display', serif; }
+        
+        .primary-gold { color: var(--primary-gold); }
+        .text-charcoal { color: var(--dark-charcoal); } /* Adicionado classe utilitária */
+        .bg-primary-gold { background-color: var(--primary-gold); }
+        .border-primary-gold { border-color: var(--primary-gold); }
+
+        .hero-bg {
+            background: linear-gradient(rgba(245, 242, 235, 0.85), rgba(253, 252, 249, 1)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-justify { text-align: justify; }
+
+        /* --- SIDE MENU (GAVETA LATERAL) --- */
+        #side-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--menu-width);
+            /* Removido max-width: 85vw para permitir 100% no mobile */
+            height: 100vh; 
+            max-height: 100vh;
+            background-color: #ffffff;
+            z-index: 100;
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 5px 0 25px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column; 
+            border-right: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Ajuste Mobile para Menu Full Screen */
+        @media (max-width: 767px) {
+            #side-menu {
+                width: 100%; /* Ocupa a tela toda */
+                max-width: 100%;
+            }
+        }
+
+        /* Estilização da Barra de Rolagem Interna do Menu */
+        .menu-scrollable {
+            overflow-y: auto;
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: rgba(0,0,0,0.1) transparent;
+        }
+        .menu-scrollable::-webkit-scrollbar {
+            width: 4px;
+        }
+        .menu-scrollable::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .menu-scrollable::-webkit-scrollbar-thumb {
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 20px;
+        }
+
+        /* --- RESIZE EFFECT STYLES --- */
+        
+        /* Transições suaves para Layout Squeeze */
+        header, main, footer {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Header precisa de regras específicas pois é position: fixed */
+        header {
+            width: 100%;
+            left: 0;
+        }
+
+        /* =========================================
+           LÓGICA DE ABERTURA DO MENU
+           ========================================= */
+
+        /* DESKTOP (> 768px): O site se ajusta (espreme) para o lado */
+        @media (min-width: 768px) {
+            /* Abre o menu */
+            body.menu-open #side-menu {
+                transform: translateX(0);
+            }
+
+            /* Header: Move para a direita e reduz a largura */
+            body.menu-open header {
+                left: var(--menu-width);
+                width: calc(100% - var(--menu-width));
+            }
+
+            /* Main e Footer: Adicionam margem, forçando o conteúdo a se reacomodar (reflow) */
+            body.menu-open main,
+            body.menu-open footer {
+                margin-left: var(--menu-width);
+                /* A largura se ajusta automaticamente pelo comportamento de bloco */
+            }
+        }
+
+        /* MOBILE (< 768px): Menu Full Screen (Sobreposição) */
+        @media (max-width: 767px) {
+            body.menu-open #side-menu {
+                transform: translateX(0);
+            }
+            
+            /* No mobile, o menu cobre tudo, então não movemos o conteúdo de fundo */
+            body.menu-open header, 
+            body.menu-open main, 
+            body.menu-open footer {
+                transform: none; 
+            }
+        }
+
+
+        /* Links do Menu Lateral */
+        .side-link {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--dark-charcoal);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            display: block;
+            cursor: pointer;
+        }
+        .side-link:hover {
+            color: var(--primary-gold);
+            padding-left: 10px;
+            border-bottom-color: var(--primary-gold);
+        }
+
+        /* Header Fixo */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            will-change: left, width; 
+        }
+
+        /* Accordion Services Styles */
+        .accordion-btn {
+            width: 100%;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+        .accordion-btn.active {
+            color: var(--primary-gold);
+        }
+        .accordion-btn .icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-btn.active .icon {
+            transform: rotate(45deg);
+            color: var(--primary-gold);
+        }
+        .accordion-content {
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        .accordion-content.open {
+            opacity: 1;
+        }
+
+        /* Dark Section Styles */
+        .bg-charcoal {
+            background-color: var(--dark-charcoal);
+            color: white;
+        }
+
+        .btn-gold-outline {
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+        .btn-gold-outline:hover {
+            background: var(--primary-gold);
+            color: white;
+            box-shadow: 0 4px 15px rgba(184, 149, 66, 0.3);
+        }
