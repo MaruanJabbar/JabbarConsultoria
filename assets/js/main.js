@@ -96,30 +96,3 @@
                 }, 700); // Espera a transição terminar antes de esconder
             }
         }
-
-/* Melhorias de UX
-   - Fecha o menu com ESC
-   - Fecha o menu ao clicar fora (quando aberto)
-*/
-(function () {
-  const menu = document.getElementById('side-menu');
-
-  function isMenuOpen() {
-    return document.body.classList.contains('menu-open');
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && isMenuOpen()) {
-      document.body.classList.remove('menu-open');
-    }
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!isMenuOpen()) return;
-    const clickedInsideMenu = menu && menu.contains(e.target);
-    const clickedMenuButton = !!e.target.closest('[onclick="toggleMenu()"]');
-    if (!clickedInsideMenu && !clickedMenuButton) {
-      document.body.classList.remove('menu-open');
-    }
-  }, { capture: true });
-})();

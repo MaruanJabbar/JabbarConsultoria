@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JABBAR - Consultoria Estratégica, Jurídica e Organizacional</title>
-    <link rel="icon" type="image/png" href="assets/img/jabbar-logo.png">
-<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="assets/img/icon.png">
+    <link rel="apple-touch-icon" href="assets/img/icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="antialiased">
 
@@ -18,9 +19,11 @@
         <!-- 1. Topo Fixo do Menu -->
         <div class="px-8 pt-10 pb-6 flex-none">
             <div class="flex justify-between items-center">
-                <div>
-                    <img src="assets/img/jabbar-logo.png" alt="JABBAR" class="h-10 w-auto object-contain">
-                    <span class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mt-1">Menu</span>
+                <div class="flex items-center gap-3">
+                    <img src="icon.png" alt="JABBAR" class="h-10 w-auto object-contain">
+                    <div class="flex flex-col">
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400 leading-none">Menu</span>
+                    </div>
                 </div>
                 <button onclick="toggleMenu()" class="text-gray-400 hover:text-red-500 transition-colors focus:outline-none p-2 -mr-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -69,12 +72,8 @@
             </button>
 
             <!-- Logo Central -->
-            <a href="#home" class="flex items-center space-x-2 group">
-                <img 
-  src="assets/img/jabbar-logo.png"
-  alt="JABBAR – Processos Administrativos e de Integridade"
-  class="h-14 md:h-16 lg:h-18 w-auto object-contain"
-/>
+            <a href="#home" class="flex items-center group" aria-label="Ir para o início">
+                <img src="assets/img/jabbar-logo.png" alt="JABBAR - Processos Administrativos e de Integridade" class="h-12 sm:h-14 md:h-16 w-auto object-contain" loading="eager">
             </a>
 
             <!-- Espaço vazio para equilibrar o layout -->
@@ -319,8 +318,8 @@
 
             <div class="container mx-auto px-6 max-w-5xl relative z-10">
                 <div class="fade-in-up text-center mb-20">
-                    <span class="inline-block text-primary-gold font-bold uppercase tracking-[0.3em] text-[10px] border border-primary-gold/20 px-4 py-2 rounded-full mb-8">Manifesto JABBAR</span>
-                    <h2 class="serif text-4xl md:text-6xl text-white leading-tight italic mb-8">"Decisões constroem futuros."</h2>
+                    <h2 class="serif text-4xl md:text-6xl text-white mb-6 tracking-wide">Manifesto Jabbar</h2>
+                    <p class="serif text-2xl md:text-3xl text-white/90 leading-tight italic mb-8">"Decisões constroem futuros."</p>
                     <div class="w-20 h-[1px] bg-primary-gold/40 mx-auto"></div>
                 </div>
                 
@@ -706,13 +705,13 @@ Esses serviços atendem demandas preventivas, contratuais, judiciais e extrajudi
                         
                         <div class="space-y-6">
                             <!-- E-mail -->
-                            <a href="mailto:contato@jabbarconsultoria.com.br" class="flex items-center group">
+                            <a href="mailto:compliance@jabbar.adv.br" class="flex items-center group">
                                 <div class="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center mr-6 group-hover:bg-primary-gold transition-all duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-gold group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
                                 </div>
-                                <span class="text-lg font-medium text-gray-300 group-hover:text-white transition-colors">contato@jabbarconsultoria.com.br</span>
+                                <span class="text-lg font-medium text-gray-300 group-hover:text-white transition-colors">compliance@jabbar.adv.br</span>
                             </a>
 
                             <!-- WhatsApp -->
@@ -729,8 +728,11 @@ Esses serviços atendem demandas preventivas, contratuais, judiciais e extrajudi
                     
                     <div class="bg-white p-12 md:p-16 rounded-[40px] text-charcoal shadow-2xl relative">
                         <h3 class="serif text-3xl mb-10">Solicitar Contato</h3>
-                        <form class="space-y-8" method="post" action="https://formspree.io/f/maqnzopz" id="contact-form" novalidate>
-                                                    <div class="relative">
+                        <form class="space-y-8" method="POST" action="https://formspree.io/f/SEU_ID_AQUI" target="_blank" novalidate>
+                            <input type="hidden" name="_redirect" value="pages/obrigado.html">
+                            <input type="text" name="_gotcha" style="display:none">
+
+                            <div class="relative">
                                 <input type="text" name="nome" autocomplete="name" required placeholder="Nome Completo" class="w-full bg-transparent border-b border-gray-200 py-3 focus:border-primary-gold outline-none text-lg transition-all placeholder:text-gray-300 font-light">
                             </div>
                             <div class="grid md:grid-cols-2 gap-8">
@@ -748,7 +750,7 @@ Esses serviços atendem demandas preventivas, contratuais, judiciais e extrajudi
 
     <footer class="bg-black py-12 text-center">
         <div class="container mx-auto px-6 text-gray-500">
-            <span class="text-[10px] uppercase tracking-widest font-bold">JABBAR Consultoria &copy; 2026</span>
+            <span class="text-[10px] uppercase tracking-widest font-bold">JABBAR Consultoria Estratégica &copy; 2026</span>
         </div>
     </footer>
 
@@ -771,6 +773,6 @@ Esses serviços atendem demandas preventivas, contratuais, judiciais e extrajudi
         </div>
     </div>
 
-        <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>
